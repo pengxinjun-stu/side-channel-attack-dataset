@@ -45,7 +45,7 @@ while true; do
         G=2
         loadlimit=$(shuf -i 20-35 -n 1)
     elif [ "$load_type" == "medium" ]; then
-        A=$(shuf -i 1-2 -n 1)
+        A=$(shuf -i 2-4 -n 1)
         B=$(shuf -i 512-1024 -n 1)
         C=$(shuf -i 5-10 -n 1)
         D=1
@@ -54,7 +54,7 @@ while true; do
         G=$(shuf -i 2-3 -n 1)
         loadlimit=$((50 - (G- 1) * 10))
     elif [ "$load_type" == "high" ]; then
-        A=$(shuf -i 1-2 -n 1)
+        A=$(shuf -i 3-6 -n 1)
         B=$(shuf -i 1024-4096 -n 1)
         C=$(shuf -i 10-15 -n 1)
         D=1
@@ -113,7 +113,7 @@ while true; do
     attack_pid=0
     attack_selected=false
     attack_file=""
-    if [ $((RANDOM % 6)) -lt 3 ]; then #攻击比例基本为1:1:1:3
+    if [ $((RANDOM % 8)) -lt 3 ]; then #攻击比例基本为1:1:1:5
         attack_selected=true
         # 随机选择一个攻击文件
         attack_file=${attack_files[$RANDOM % ${#attack_files[@]}]}
